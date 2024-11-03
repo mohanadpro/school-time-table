@@ -20,7 +20,7 @@ number_of_sessions_on_friday=int(input("Enter the number of sessions on friday \
 
 math_session_number=int(input("Enter the number of math sessions \n"))
 physic_session_number=int(input("Enter the number of physic sessions \n"))
-chemistry_session_number=int(input("Enter the number of cgemistry sessions \n"))
+chemistry_session_number=int(input("Enter the number of chemistry sessions \n"))
 
 science_session_number=int(input("Enter the number of science sessions \n"))
 geography_session_number=int(input("Enter the number of geography sessions \n"))
@@ -326,7 +326,7 @@ initial_program()
 
 
 
-updated_time_table=change_of_the_session_to_specific_time(8,time_table,45)
+updated_time_table=change_of_the_session_to_specific_time(time_table)
 print_time_table(updated_time_table)
 
 
