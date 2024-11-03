@@ -9,7 +9,7 @@ breaks_per_day=[]
 
 the_beginning_of_day=int(input("At which hour start the first session \n"))
 period_of_session_in_minutes=int(input("Enter the period of the session \n"))
-break_between_days=int(input("Enter the break between sessions \n"))
+break_between_days=int(input("Enter the break between sessions in minutes, ex: 5 \n"))
 how_many_break_per_day=int(input("How many breaks per day for example breakfast break, launch break \n"))
 
 # add breaks between session depending the count of the breaks
