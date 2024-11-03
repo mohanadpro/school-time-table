@@ -12,6 +12,7 @@ period_of_session_in_minutes=int(input("Enter the period of the session \n"))
 break_between_days=int(input("Enter the break between sessions \n"))
 how_many_break_per_day=int(input("How many breaks per day for example breakfast break, launch break \n"))
 
+# add breaks between session depending the count of the breaks
 for i in range(1,how_many_break_per_day+1):
     end_of_word="" 
     match (i):
@@ -19,7 +20,7 @@ for i in range(1,how_many_break_per_day+1):
         case 2: end_of_word="nd"
         case 3: end_of_word="rd"
         case 4: end_of_word="th"
-    break_start=input(f"At which time starts the {i}{end_of_word} break \n")
+    break_start=input(f"At which time starts the {i}{end_of_word} break, it should be at the end of a session, ex:10:25 \n")
     break_period=int(input(f"How many minutes lasts the {i}{end_of_word} break \n"))
     break_per_day=BreakPerDay(break_start,break_period)
     breaks_per_day.append(break_per_day)
@@ -88,10 +89,12 @@ def convert_num_to_time(previous):
         end_session_in_minute=previous_in_minutes+period_of_session_in_minutes
         start_hour=int(previous_in_minutes/60)
         start_minutes=previous_in_minutes%60 
-
+        start_minutes_with_validation=start_minutes if len(str(start_minutes))>1 else "0"+ str(start_minutes)
         end_hour=int(end_session_in_minute/60)
         end_minutes=end_session_in_minute%60
-        return str(start_hour)+':'+str("00" if start_minutes==0 else start_minutes)+'-'+str(end_hour)+':'+str("00" if end_minutes==0 else end_minutes)
+        end_minutes_with_validation=end_minutes if len(str(end_minutes))>1 else "0"+ str(end_minutes)
+
+        return str(start_hour)+':'+str("00" if start_minutes==0 else start_minutes_with_validation)+'-'+str(end_hour)+':'+str("00" if end_minutes==0 else end_minutes_with_validation)
 
 
 """
@@ -254,8 +257,8 @@ def check_availability_by_specific_day_and_update(day,subject):
         subjectDistribution()
         updated_time_table=change_of_the_session_to_specific_time(time_table)
         print_time_table(updated_time_table)
-
         exit()
+
 
 
 """
@@ -345,11 +348,5 @@ def initial_program():
 
 
 initial_program()
-
-
-
 updated_time_table=change_of_the_session_to_specific_time(time_table)
 print_time_table(updated_time_table)
-
-
-
