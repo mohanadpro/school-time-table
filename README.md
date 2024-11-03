@@ -13,7 +13,14 @@ https://school-time-table-e8ecb79978ea.herokuapp.com/
 2. How many minutes lasts the session
 3. How many minutes are between sessions
 4. How many sessions in each day
-5. How many sessions for every subject in the week
+5. How many sessions for every subject per week
+
+
+# Future plan
+* Take in account the priority so the subjects that has higher priority would be in the first 3 sessions in the day
+* Work on the launch break to be shown as an empty field in the determined time 
+* Work on the favorite days for the teachers so Mathematics teacher prefers to work on Monday and Wednesday
+* Work on the not suitable days for the teacher so Mathematics teacher coudln't work on Tuesday
 
 
 ## Creating the Heroku app
