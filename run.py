@@ -37,8 +37,8 @@ art_session_number=int(input("Enter the number of art sessions \n"))
 
 
 """
-It takes a number of sessions and return an initial dictionary that represents sessions for the mentioned day
-The keys are right now numbers which will be replaced in the show to the time of the session for example 0 ---> 8:00 - 8:45
+It takes a number of sessions per day and return an initial dictionary that represents sessions for the mentioned day
+The keys are right now numbers which will be replaced in the show as a time of the session for example 0 ---> 8:00 - 8:45
 """
 def devidDayIntoStudySession(num_of_sessions_in_the_specific_day):
     times={}
