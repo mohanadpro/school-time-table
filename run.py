@@ -5,6 +5,11 @@ import random
 
 
 # inputs for the project
+
+the_beginning_of_day=int(input("At which hour start the first session \n"))
+period_of_session_in_minutes=int(input("Enter the period of the session \n"))
+break_between_days=int(input("Enter the break between sessions \n"))
+
 number_of_sessions_on_monday=int(input("Enter the number of sessions on monday \n"))
 number_of_sessions_on_tuesday=int(input("Enter the number of sessions on tuesday \n"))
 
@@ -48,7 +53,7 @@ def devidDayIntoStudySession(num_of_sessions_in_the_specific_day):
     1: 8:45-9:45
 
 """
-def convert_num_to_time(the_beginning_of_day,previous,period_of_session_in_minutes):
+def convert_num_to_time(previous):
     if previous==0 :
         minutes_after_time_period=(the_beginning_of_day)*60+period_of_session_in_minutes
         start_hour=the_beginning_of_day
@@ -57,7 +62,7 @@ def convert_num_to_time(the_beginning_of_day,previous,period_of_session_in_minut
         end_minutes=minutes_after_time_period%60
         return str(start_hour)+':'+str("00" if start_minutes==0 else start_minutes)+'-'+str(end_hour)+':'+str("00" if end_minutes==0 else end_minutes)
     else:
-        previous_in_minutes=int(float(previous.split(':')[0]))*60 + int(float(previous.split(':')[1]))
+        previous_in_minutes=int(float(previous.split(':')[0]))*60 + int(float(previous.split(':')[1]))+break_between_days
         end_session_in_minute=previous_in_minutes+period_of_session_in_minutes
         start_hour=int(previous_in_minutes/60)
         start_minutes=previous_in_minutes%60
@@ -71,11 +76,11 @@ def convert_num_to_time(the_beginning_of_day,previous,period_of_session_in_minut
 it's just for the show instead of represent the session with 0 : 'Mathematic' it will be represented '8-8:45' ....
 hier the sessions will be send in a specific day and an updated result with time will be returned
 """
-def update_num_to_specific_time(the_beginning_of_day,time_table,period_of_session_in_minutes):
+def update_num_to_specific_time(time_table):
     updated_time_table_for_show={}
     previous=0
     for num,subject in zip(time_table.keys(),time_table.values()):  
-         time_now=convert_num_to_time(the_beginning_of_day,previous,period_of_session_in_minutes)   
+         time_now=convert_num_to_time(previous)   
          previous=time_now.split('-')[1]
          updated_time_table_for_show[time_now]=subject    
     return updated_time_table_for_show
@@ -85,10 +90,10 @@ def update_num_to_specific_time(the_beginning_of_day,time_table,period_of_sessio
 it's just for the show instead of represent the session with 0 : 'Mathematic' it will be represented '8-8:45' ....
 loop on each day and send its sessions to another function to be update it
 """
-def change_of_the_session_to_specific_time(the_beginning_of_day,school_time_table,period_of_session_in_minutes):
+def change_of_the_session_to_specific_time(school_time_table):
     updated_school_time_table={}
     for day,time_with_subject in zip(school_time_table.keys(),school_time_table.values()):
-        updated_school_time_table[day]=update_num_to_specific_time(the_beginning_of_day,time_with_subject,period_of_session_in_minutes)
+        updated_school_time_table[day]=update_num_to_specific_time(time_with_subject)
     return updated_school_time_table
 
 
@@ -225,7 +230,7 @@ def check_availability_by_specific_day_and_update(day,subject):
                      ,music_session_number,art_session_number)
 
         subjectDistribution()
-        updated_time_table=change_of_the_session_to_specific_time(8,time_table,45)
+        updated_time_table=change_of_the_session_to_specific_time(time_table)
         print_time_table(updated_time_table)
 
         exit()
