@@ -1,14 +1,20 @@
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
-Welcome,
+# School timetable 
+This is an algorithm to create a school time table 
+Every time the user execute this application they get a different result
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **May 14, 2024**
+# live production 
+https://school-time-table-e8ecb79978ea.herokuapp.com/
 
-## Reminders
+# instruction to use the app
+# inputs:
+1. The user must enter what time the school starts.
+2. How many minutes lasts the session
+3. How many minutes are between sessions
+4. How many sessions in each day
+5. How many sessions for every subject in the week
 
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
 
 ## Creating the Heroku app
 
@@ -16,7 +22,7 @@ When you create the app, you will need to add two buildpacks from the _Settings_
 
 1. `heroku/python`
 2. `heroku/nodejs`
-
+ 
 You must then create a _Config Var_ called `PORT`. Set this to `8000`
 
 If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
