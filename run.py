@@ -1,14 +1,29 @@
 from subject import Subject
+from break_per_day import BreakPerDay
 import random
 
 
-
+breaks_per_day=[]
 
 # inputs for the project
 
 the_beginning_of_day=int(input("At which hour start the first session \n"))
 period_of_session_in_minutes=int(input("Enter the period of the session \n"))
 break_between_days=int(input("Enter the break between sessions \n"))
+how_many_break_per_day=int(input("How many breaks per day for example breakfast break, launch break \n"))
+
+for i in range(1,how_many_break_per_day+1):
+    end_of_word="" 
+    match (i):
+        case 1: end_of_word="st"
+        case 2: end_of_word="nd"
+        case 3: end_of_word="rd"
+        case 4: end_of_word="th"
+    break_start=input(f"At which time starts the {i}{end_of_word} break \n")
+    break_period=int(input(f"How many minutes lasts the {i}{end_of_word} break \n"))
+    break_per_day=BreakPerDay(break_start,break_period)
+    breaks_per_day.append(break_per_day)
+
 
 number_of_sessions_on_monday=int(input("Enter the number of sessions on monday \n"))
 number_of_sessions_on_tuesday=int(input("Enter the number of sessions on tuesday \n"))
@@ -62,10 +77,17 @@ def convert_num_to_time(previous):
         end_minutes=minutes_after_time_period%60
         return str(start_hour)+':'+str("00" if start_minutes==0 else start_minutes)+'-'+str(end_hour)+':'+str("00" if end_minutes==0 else end_minutes)
     else:
-        previous_in_minutes=int(float(previous.split(':')[0]))*60 + int(float(previous.split(':')[1]))+break_between_days
+        previous_in_minutes=0
+        for break_per_day in breaks_per_day:
+            if(previous==break_per_day.time):                
+                previous_in_minutes=int(float(previous.split(':')[0]))*60 + int(float(previous.split(':')[1]))+break_per_day.period
+                break
+            else:                
+                previous_in_minutes=int(float(previous.split(':')[0]))*60 + int(float(previous.split(':')[1]))+break_between_days
+
         end_session_in_minute=previous_in_minutes+period_of_session_in_minutes
         start_hour=int(previous_in_minutes/60)
-        start_minutes=previous_in_minutes%60
+        start_minutes=previous_in_minutes%60 
 
         end_hour=int(end_session_in_minute/60)
         end_minutes=end_session_in_minute%60
