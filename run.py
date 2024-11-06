@@ -1,21 +1,88 @@
 from subject import Subject
 from break_per_day import BreakPerDay
 import random
+import datetime
 breaks_per_day = []
-
 # inputs for the project
 print("Welcome to school time table system"
       + ", please take into account"
       + " that time system is from 00:00 to 24:00 \n")
 
-the_beginning_of_day = int(input("At which hour start the first session \n"))
+
+def validate_number_between_two_numbers(
+        input_message,
+        first_value,
+        second_value,
+        error_message):
+    while True:
+        try:
+            result = int(input(input_message))
+            if (first_value <= result <= second_value):
+                return result
+            else:
+                raise ValueError()
+        except ValueError:
+            print('\033[31m' + error_message)
+            print('\033[39m')
 
 
-period_of_session_in_minutes = int(input("Enter the period of the session \n"))
-break_between_days = int(input(
-    "Enter the break between sessions in minutes, ex: 5 \n"))
-how_many_break_per_day = int(input(
-    "How many breaks per day for example breakfast break, launch break \n"))
+the_beginning_of_day = validate_number_between_two_numbers(
+    "At which hour start the first session"
+    + " value between 8 and 10 \n",
+    8,
+    10,
+    "Please enter value between 8 and 10")
+
+
+period_of_session_in_minutes = validate_number_between_two_numbers(
+    "Enter the period of the session"
+    + " value between 30 and 60 \n",
+    30,
+    60,
+    "Please enter value between 30 and 60")
+
+
+break_between_sessions = validate_number_between_two_numbers(
+    "Enter the break between sessions in minutes"
+    + " value between 0 and 5, ex: 5 \n",
+    0,
+    5,
+    "Please enter value between 0 and 5")
+
+
+def convert_time_to_minute(time):
+    return (
+        int(time.split(':')[0]) * 60 + int(int(time.split(':')[1])))
+
+
+def validate_breaks_per_day(input_message):
+    timeformat = "%H:%M"
+    while True:
+        try:
+            the_input = input(input_message)
+            datetime.datetime.strptime(the_input, timeformat)
+            if (len(breaks_per_day) > 0):
+                for break_value in breaks_per_day:
+                    if (
+                        convert_time_to_minute(the_input)
+                        < (
+                            convert_time_to_minute(break_value.time)
+                            + break_value.period
+                            + period_of_session_in_minutes)):
+                        raise ValueError
+            return the_input
+        except ValueError:
+            print('\033[31m' + 'Please input a valid time')
+            print('\033[39m')
+
+
+how_many_break_per_day = validate_number_between_two_numbers(
+    "How many breaks per day for example breakfast break, launch break"
+    + "value between 1 and 2\n",
+    1,
+    2,
+    "Please enter value between 1 and 2")
+
 
 # add breaks between session depending the count of the breaks
 for i in range(1, how_many_break_per_day + 1):
@@ -23,56 +90,138 @@ for i in range(1, how_many_break_per_day + 1):
     match (i):
         case 1: end_of_word = "st"
         case 2: end_of_word = "nd"
-        case 3: end_of_word = "rd"
-        case 4: end_of_word = "th"
-    break_start = input(
+    break_start = validate_breaks_per_day(
         f"At which time starts the {i}{end_of_word} break,"
-        + " it should be at the end of a session, ex:10:25 \n")
-    break_period = int(input(
-        f"How many minutes lasts the {i}{end_of_word} break \n"))
+        + " it should be at the end of a session, ex:10:25 \n"
+    )
+    break_period = validate_number_between_two_numbers(
+        f"How many minutes lasts the {i}{end_of_word} break \n",
+        10,
+        60,
+        "Please enter value between 10 and 60 "
+        )
     break_per_day = BreakPerDay(break_start, break_period)
     breaks_per_day.append(break_per_day)
 
 
-number_of_sessions_on_monday = int(input(
-    "Enter the number of sessions on monday \n"))
-number_of_sessions_on_tuesday = int(input(
-    "Enter the number of sessions on tuesday \n"))
+number_of_sessions_on_monday = validate_number_between_two_numbers(
+    "Enter the number of sessions on monday,"
+    + " value between 4 and 10 \n",
+    4,
+    10,
+    'Please enter value between 4 and 10 \n')
 
-number_of_sessions_on_wednesday = int(input(
-    "Enter the number of sessions on wednesday \n"))
-number_of_sessions_on_thursday = int(input(
-    "Enter the number of sessions on thursday \n"))
-number_of_sessions_on_friday = int(input(
-    "Enter the number of sessions on friday \n"))
+number_of_sessions_on_tuesday = validate_number_between_two_numbers(
+    "Enter the number of sessions on tuesday,"
+    + " value between 4 and 10  \n",
+    4,
+    10,
+    'Please enter value between 4 and 10 \n')
 
+number_of_sessions_on_wednesday = validate_number_between_two_numbers(
+    "Enter the number of sessions on wednesday,"
+    + " value between 4 and 10  \n",
+    4,
+    10,
+    'Please enter value between 4 and 10 \n')
 
-math_session_number = int(input(
-    "Enter the number of math sessions \n"))
-physic_session_number = int(input(
-    "Enter the number of physic sessions \n"))
-chemistry_session_number = int(input(
-    "Enter the number of chemistry sessions \n"))
+number_of_sessions_on_thursday = validate_number_between_two_numbers(
+    "Enter the number of sessions on thursday,"
+    + " value between 4 and 10  \n",
+    4,
+    10,
+    'Please enter value between 4 and 10 \n')
 
-science_session_number = int(input(
-    "Enter the number of science sessions \n"))
-geography_session_number = int(input(
-    "Enter the number of geography sessions \n"))
-english_session_number = int(input(
-    "Enter the number of english sessions \n"))
-french_session_number = int(input(
-    "Enter the number of french sessions \n"))
-informatics_session_number = int(input(
-    "Enter the number of informatics sessions \n"))
-politics_session_number = int(input(
-    "Enter the number of politics sessions \n"))
+number_of_sessions_on_friday = validate_number_between_two_numbers(
+    "Enter the number of sessions on friday,"
+    + " value between 4 and 10  \n",
+    4,
+    10,
+    'Please enter value between 4 and 10 \n')
 
-sport_session_number = int(input(
-    "Enter the number of sport sessions \n"))
-music_session_number = int(input(
-    "Enter the number of music sessions \n"))
-art_session_number = int(input(
-    "Enter the number of art sessions \n"))
+math_session_number = validate_number_between_two_numbers(
+    "Enter the number of math sessions,"
+    + " value between 1 and 5  \n",
+    1,
+    5,
+    'Please enter value between 1 and 5 \n')
+
+physic_session_number = validate_number_between_two_numbers(
+    "Enter the number of physic sessions,"
+    + " value between 1 and 5  \n",
+    1,
+    5,
+    'Please enter value between 1 and 5 \n')
+
+chemistry_session_number = validate_number_between_two_numbers(
+    "Enter the number of chemistry sessions,"
+    + " value between 1 and 5  \n",
+    1,
+    5,
+    'Please enter value between 1 and 5 \n')
+
+science_session_number = validate_number_between_two_numbers(
+    "Enter the number of science sessions,"
+    + " value between 1 and 5  \n",
+    1,
+    5,
+    'Please enter value between 1 and 5 \n')
+
+geography_session_number = validate_number_between_two_numbers(
+    "Enter the number of geography sessions,"
+    + " value between 1 and 5  \n",
+    1,
+    5,
+    'Please enter value between 1 and 5 \n')
+
+english_session_number = validate_number_between_two_numbers(
+    "Enter the number of english sessions,"
+    + " value between 1 and 5  \n",
+    1,
+    5,
+    'Please enter value between 1 and 5 \n')
+
+french_session_number = validate_number_between_two_numbers(
+    "Enter the number of french sessions,"
+    + " value between 1 and 5  \n",
+    1,
+    5,
+    'Please enter value between 1 and 5 \n')
+
+informatics_session_number = validate_number_between_two_numbers(
+    "Enter the number of informatics sessions,"
+    + " value between 1 and 5  \n",
+    1,
+    5,
+    'Please enter value between 1 and 5 \n')
+
+politics_session_number = validate_number_between_two_numbers(
+    "Enter the number of politics sessions,"
+    + " value between 1 and 5  \n",
+    1,
+    5,
+    'Please enter value between 1 and 5 \n')
+
+sport_session_number = validate_number_between_two_numbers(
+    "Enter the number of sport sessions,"
+    + " value between 1 and 5  \n",
+    1,
+    5,
+    'Please enter value between 1 and 5 \n')
+
+music_session_number = validate_number_between_two_numbers(
+    "Enter the number of music sessions,"
+    + " value between 1 and 5  \n",
+    1,
+    5,
+    'Please enter value between 1 and 5 \n')
+
+art_session_number = validate_number_between_two_numbers(
+    "Enter the number of art sessions,"
+    + " value between 1 and 5  \n",
+    1,
+    5,
+    'Please enter value between 1 and 5 \n')
 
 
 def devidDayIntoStudySession(num_of_sessions_in_the_specific_day):
@@ -121,9 +270,9 @@ def convert_num_to_time(previous):
                 break
             else:
                 previous_in_minutes = (
-                    int(
-                    float(previous.split(':')[0])) * 60
-                    + int(float(previous.split(':')[1])) + break_between_days)
+                    int(float(previous.split(':')[0])) * 60
+                    + int(float(previous.split(':')[1]))
+                        + break_between_sessions)
 
         end_session_in_minute = (
             previous_in_minutes
@@ -456,7 +605,7 @@ def initial_program():
     the program will start distributing the subject
     otherwise will appear a wrong message
     """
-    if (validate_inputs() == True):
+    if (validate_inputs() is True):
         initial_time_table(
             number_of_sessions_on_monday,
             number_of_sessions_on_tuesday,
