@@ -272,7 +272,7 @@ def convert_num_to_time(previous):
                 previous_in_minutes = (
                     int(float(previous.split(':')[0])) * 60
                     + int(float(previous.split(':')[1]))
-                        + break_between_sessions)
+                    + break_between_sessions)
 
         end_session_in_minute = (
             previous_in_minutes
@@ -288,10 +288,12 @@ def convert_num_to_time(previous):
             end_minutes if len(str(end_minutes))
             > 1 else "0" + str(end_minutes))
         result = (str(start_hour) + ':'
-                  + str("00" if start_minutes == 0 else start_minutes_with_validation)
+                  + str("00" if start_minutes == 0
+                        else start_minutes_with_validation)
                   + '-' + str(end_hour)
                   + ':'
-                  + str("00" if end_minutes == 0 else end_minutes_with_validation))
+                  + str("00" if end_minutes == 0
+                        else end_minutes_with_validation))
         return result
 
 
@@ -321,8 +323,8 @@ def change_of_the_session_to_specific_time(school_time_table):
     send its sessions to another function to be update it
     """
     updated_school_time_table = {}
-    for day, time_with_subject in zip(
-        school_time_table.keys(), school_time_table.values()):
+    for day, time_with_subject in (
+            zip(school_time_table.keys(), school_time_table.values())):
         updated_school_time_table[day] = update_num_to_specific_time(
             time_with_subject)
     return updated_school_time_table
@@ -463,8 +465,8 @@ def check_availability_by_specific_day_and_update(day, subject):
     """
     is_infinit_loop = False
     sessions_in_the_day = time_table[day]
-    for time, session in zip(
-        sessions_in_the_day.keys(), sessions_in_the_day.values()):
+    for time, session in (
+            zip(sessions_in_the_day.keys(), sessions_in_the_day.values())):
         if (session == ''):
             is_just_one_day_empty = check_if_only_one_day_empty()
             if (is_just_one_day_empty is True):
