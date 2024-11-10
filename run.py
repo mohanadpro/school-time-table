@@ -1,227 +1,24 @@
 from subject import Subject
-from break_per_day import BreakPerDay
 import random
-import datetime
-breaks_per_day = []
-# inputs for the project
-print("Welcome to school time table system"
-      + ", please take into account"
-      + " that time system is from 00:00 to 24:00 \n")
+from user_input import UserInputs
+from validation import Validation
+from presentation import Presentation
 
+time_table = {}
+subject_list = []
+user_input = UserInputs()
 
-def validate_number_between_two_numbers(
-        input_message,
-        first_value,
-        second_value,
-        error_message):
-    while True:
-        try:
-            result = int(input(input_message))
-            if (first_value <= result <= second_value):
-                return result
-            else:
-                raise ValueError()
-        except ValueError:
-            print('\033[31m' + error_message)
-            print('\033[39m')
-
-
-the_beginning_of_day = validate_number_between_two_numbers(
-    "At which hour start the first session"
-    + " value between 8 and 10 \n",
-    8,
-    10,
-    "Please enter value between 8 and 10")
-
-
-period_of_session_in_minutes = validate_number_between_two_numbers(
-    "Enter the period of the session"
-    + " value between 30 and 60 \n",
-    30,
-    60,
-    "Please enter value between 30 and 60")
-
-
-break_between_sessions = validate_number_between_two_numbers(
-    "Enter the break between sessions in minutes"
-    + " value between 0 and 5, ex: 5 \n",
-    0,
-    5,
-    "Please enter value between 0 and 5")
-
-
-def convert_time_to_minute(time):
-    return (
-        int(time.split(':')[0]) * 60 + int(int(time.split(':')[1])))
-
-
-def validate_breaks_per_day(input_message):
-    timeformat = "%H:%M"
-    while True:
-        try:
-            the_input = input(input_message)
-            datetime.datetime.strptime(the_input, timeformat)
-            if (len(breaks_per_day) > 0):
-                for break_value in breaks_per_day:
-                    if (
-                        convert_time_to_minute(the_input)
-                        < (
-                            convert_time_to_minute(break_value.time)
-                            + break_value.period
-                            + period_of_session_in_minutes)):
-                        raise ValueError
-            return the_input
-        except ValueError:
-            print('\033[31m' + 'Please input a valid time')
-            print('\033[39m')
-
-
-how_many_break_per_day = validate_number_between_two_numbers(
-    "How many breaks per day for example breakfast break, launch break"
-    + "value between 1 and 2\n",
-    1,
-    2,
-    "Please enter value between 1 and 2")
-
-
-# add breaks between session depending the count of the breaks
-for i in range(1, how_many_break_per_day + 1):
-    end_of_word = ""
-    match (i):
-        case 1: end_of_word = "st"
-        case 2: end_of_word = "nd"
-    break_start = validate_breaks_per_day(
-        f"At which time starts the {i}{end_of_word} break,"
-        + " it should be at the end of a session, ex:10:25 \n"
-    )
-    break_period = validate_number_between_two_numbers(
-        f"How many minutes lasts the {i}{end_of_word} break \n",
-        10,
-        60,
-        "Please enter value between 10 and 60 "
-        )
-    break_per_day = BreakPerDay(break_start, break_period)
-    breaks_per_day.append(break_per_day)
-
-
-number_of_sessions_on_monday = validate_number_between_two_numbers(
-    "Enter the number of sessions on monday,"
-    + " value between 4 and 10 \n",
-    4,
-    10,
-    'Please enter value between 4 and 10 \n')
-
-number_of_sessions_on_tuesday = validate_number_between_two_numbers(
-    "Enter the number of sessions on tuesday,"
-    + " value between 4 and 10  \n",
-    4,
-    10,
-    'Please enter value between 4 and 10 \n')
-
-number_of_sessions_on_wednesday = validate_number_between_two_numbers(
-    "Enter the number of sessions on wednesday,"
-    + " value between 4 and 10  \n",
-    4,
-    10,
-    'Please enter value between 4 and 10 \n')
-
-number_of_sessions_on_thursday = validate_number_between_two_numbers(
-    "Enter the number of sessions on thursday,"
-    + " value between 4 and 10  \n",
-    4,
-    10,
-    'Please enter value between 4 and 10 \n')
-
-number_of_sessions_on_friday = validate_number_between_two_numbers(
-    "Enter the number of sessions on friday,"
-    + " value between 4 and 10  \n",
-    4,
-    10,
-    'Please enter value between 4 and 10 \n')
-
-math_session_number = validate_number_between_two_numbers(
-    "Enter the number of math sessions,"
-    + " value between 1 and 5  \n",
-    1,
-    5,
-    'Please enter value between 1 and 5 \n')
-
-physic_session_number = validate_number_between_two_numbers(
-    "Enter the number of physic sessions,"
-    + " value between 1 and 5  \n",
-    1,
-    5,
-    'Please enter value between 1 and 5 \n')
-
-chemistry_session_number = validate_number_between_two_numbers(
-    "Enter the number of chemistry sessions,"
-    + " value between 1 and 5  \n",
-    1,
-    5,
-    'Please enter value between 1 and 5 \n')
-
-science_session_number = validate_number_between_two_numbers(
-    "Enter the number of science sessions,"
-    + " value between 1 and 5  \n",
-    1,
-    5,
-    'Please enter value between 1 and 5 \n')
-
-geography_session_number = validate_number_between_two_numbers(
-    "Enter the number of geography sessions,"
-    + " value between 1 and 5  \n",
-    1,
-    5,
-    'Please enter value between 1 and 5 \n')
-
-english_session_number = validate_number_between_two_numbers(
-    "Enter the number of english sessions,"
-    + " value between 1 and 5  \n",
-    1,
-    5,
-    'Please enter value between 1 and 5 \n')
-
-french_session_number = validate_number_between_two_numbers(
-    "Enter the number of french sessions,"
-    + " value between 1 and 5  \n",
-    1,
-    5,
-    'Please enter value between 1 and 5 \n')
-
-informatics_session_number = validate_number_between_two_numbers(
-    "Enter the number of informatics sessions,"
-    + " value between 1 and 5  \n",
-    1,
-    5,
-    'Please enter value between 1 and 5 \n')
-
-politics_session_number = validate_number_between_two_numbers(
-    "Enter the number of politics sessions,"
-    + " value between 1 and 5  \n",
-    1,
-    5,
-    'Please enter value between 1 and 5 \n')
-
-sport_session_number = validate_number_between_two_numbers(
-    "Enter the number of sport sessions,"
-    + " value between 1 and 5  \n",
-    1,
-    5,
-    'Please enter value between 1 and 5 \n')
-
-music_session_number = validate_number_between_two_numbers(
-    "Enter the number of music sessions,"
-    + " value between 1 and 5  \n",
-    1,
-    5,
-    'Please enter value between 1 and 5 \n')
-
-art_session_number = validate_number_between_two_numbers(
-    "Enter the number of art sessions,"
-    + " value between 1 and 5  \n",
-    1,
-    5,
-    'Please enter value between 1 and 5 \n')
+"""
+This variable will be increased each time where
+there is a day has empty session but the subject is repeated
+for example I still have on Monday and Thursday empty sessions
+and Mathematics subject has 2 sessions, but after checking it appears
+ that these days have mathematics session
+In this case the application will enter an infinite loop,
+ so I used this variiable to check and  after 100 times of trying,
+   exit the loop and initial the program again and execute it again
+"""
+count_of_tries = 0
 
 
 def devidDayIntoStudySession(num_of_sessions_in_the_specific_day):
@@ -237,100 +34,6 @@ def devidDayIntoStudySession(num_of_sessions_in_the_specific_day):
     for i in range(num_of_sessions_in_the_specific_day):
         times[i] = ''
     return times
-
-
-def convert_num_to_time(previous):
-    """
-    for the show: it takes previous session's time
-    if the previous value is 0 so it will represent the first session
-      in the day
-      ex: 0: begin time of the day
-    1: 8:45-9:45
-    """
-    if previous == 0:
-        minutes_after_time_period = ((the_beginning_of_day) * 60
-                                     + period_of_session_in_minutes)
-        start_hour = the_beginning_of_day
-        start_minutes = 0
-        end_hour = int(minutes_after_time_period / 60)
-        end_minutes = minutes_after_time_period % 60
-        result = (str(start_hour) + ':'
-                  + str("00" if start_minutes == 0 else start_minutes)
-                  + '-'+str(end_hour) + ':'
-                  + str("00" if end_minutes == 0 else end_minutes))
-        return result
-    else:
-        previous_in_minutes = 0
-        for break_per_day in breaks_per_day:
-            if (previous == break_per_day.time):
-                previous_in_minutes = (
-                    int(float(previous.split(':')[0])) * 60
-                    + int(float(previous.split(':')[1]))
-                    + break_per_day.period)
-                break
-            else:
-                previous_in_minutes = (
-                    int(float(previous.split(':')[0])) * 60
-                    + int(float(previous.split(':')[1]))
-                    + break_between_sessions)
-
-        end_session_in_minute = (
-            previous_in_minutes
-            + period_of_session_in_minutes)
-        start_hour = int(previous_in_minutes / 60)
-        start_minutes = previous_in_minutes % 60
-        start_minutes_with_validation = (
-            start_minutes if len(str(start_minutes))
-            > 1 else "0" + str(start_minutes))
-        end_hour = int(end_session_in_minute / 60)
-        end_minutes = end_session_in_minute % 60
-        end_minutes_with_validation = (
-            end_minutes if len(str(end_minutes))
-            > 1 else "0" + str(end_minutes))
-        result = (str(start_hour) + ':'
-                  + str("00" if start_minutes == 0
-                        else start_minutes_with_validation)
-                  + '-' + str(end_hour)
-                  + ':'
-                  + str("00" if end_minutes == 0
-                        else end_minutes_with_validation))
-        return result
-
-
-def update_num_to_specific_time(time_table):
-    """
-    it's just for the show
-    instead of present the session with 0 : 'Mathematic'
-    it will be presented '8-8:45' ....
-    hier the sessions will be send in a specific day
-      and an updated result with time will be returned
-    """
-    updated_time_table_for_show = {}
-    previous = 0
-    for subject in time_table.values():
-        time_now = convert_num_to_time(previous)
-        previous = time_now.split('-')[1]
-        updated_time_table_for_show[time_now] = subject
-    return updated_time_table_for_show
-
-
-def change_of_the_session_to_specific_time(school_time_table):
-    """
-    it's just for the show,
-    instead of present the session with 0 : 'Mathematic'
-      it will be presented '8-8:45' ....
-    loop on each day and
-    send its sessions to another function to be update it
-    """
-    updated_school_time_table = {}
-    for day, time_with_subject in (
-            zip(school_time_table.keys(), school_time_table.values())):
-        updated_school_time_table[day] = update_num_to_specific_time(
-            time_with_subject)
-    return updated_school_time_table
-
-
-time_table = {}
 
 
 def initial_time_table(
@@ -360,21 +63,19 @@ def initial_time_table(
         number_of_sessions_on_friday)
 
 
-subject_list = []
-
-
-def initial_subject_list(math_session_number,
-                         physic_session_number,
-                         chemistry_session_number,
-                         science_session_number,
-                         geography_session_number,
-                         english_session_number,
-                         french_session_number,
-                         informatics_session_number,
-                         politics_session_number,
-                         sport_session_number,
-                         music_session_number,
-                         art_session_number):
+def initial_subject_list(
+        math_session_number,
+        physic_session_number,
+        chemistry_session_number,
+        science_session_number,
+        geography_session_number,
+        english_session_number,
+        french_session_number,
+        informatics_session_number,
+        politics_session_number,
+        sport_session_number,
+        music_session_number,
+        art_session_number):
     """
     initial subject list
     each subject is an object that has
@@ -383,20 +84,21 @@ def initial_subject_list(math_session_number,
     the subjects have higher priority it will distributed
       in the first three sessions, but right now it's ignored
     """
-    math = Subject('Math', math_session_number, 2)
-    physic = Subject('Physic', physic_session_number, 2)
-    chemistry = Subject('Chemistry', chemistry_session_number, 2)
 
-    science = Subject('Science', science_session_number, 1)
-    geography = Subject('Geography', geography_session_number, 1)
-    english = Subject('English', english_session_number, 1)
-    french = Subject('French', french_session_number, 1)
-    informatics = Subject('Informatics', informatics_session_number, 1)
-    politics = Subject('Politics', politics_session_number, 1)
+    math = Subject('Math', math_session_number)
+    physic = Subject('Physic', physic_session_number)
+    chemistry = Subject('Chemistry', chemistry_session_number)
 
-    sport = Subject('Sport', sport_session_number, 0)
-    music = Subject('Music', music_session_number, 0)
-    art = Subject('Art', art_session_number, 1)
+    science = Subject('Science', science_session_number)
+    geography = Subject('Geography', geography_session_number)
+    english = Subject('English', english_session_number)
+    french = Subject('French', french_session_number)
+    informatics = Subject('Informatics', informatics_session_number)
+    politics = Subject('Politics', politics_session_number)
+
+    sport = Subject('Sport', sport_session_number)
+    music = Subject('Music', music_session_number)
+    art = Subject('Art', art_session_number)
     subject_list.clear()
     subject_list.append(math)
     subject_list.append(physic)
@@ -421,7 +123,11 @@ def get_specific_day(num):
     return list(time_table.keys())[num]
 
 
-def assign_subject_to_specific_time(sessions_in_the_day, time, subject):
+def assign_subject_to_specific_time(
+        sessions_in_the_day,
+        time,
+        subject
+        ):
     """
     it take 3 params sessions_in_the_day
     : list of session with the value which will be updated in the future
@@ -434,28 +140,30 @@ def assign_subject_to_specific_time(sessions_in_the_day, time, subject):
         subject_list.remove(subject)
 
 
-def print_time_table(time_table):
-    """
-    print the time table a simple loop on the dictionary
-    """
-    for day, session in zip(time_table.keys(), time_table.values()):
-        print(day, session)
-
-
-"""
-This variable will be increased each time where
-there is a day has empty session but the subject is repeated
-for example I still have on Monday and Thursday empty sessions
-and Mathematics subject has 2 sessions, but after checking it appears
- that these days have mathematics session
-In this case the application will enter an infinite loop,
- so I used this variiable to check and  after 100 times of trying,
-   exit the loop and initial the program again and execute it again
-"""
-count_of_tries = 0
-
-
-def check_availability_by_specific_day_and_update(day, subject):
+def check_availability_by_specific_day_and_update(
+        day,
+        subject,
+        number_of_sessions_on_monday,
+        number_of_sessions_on_tuesday,
+        number_of_sessions_on_wednesday,
+        number_of_sessions_on_thursday,
+        number_of_sessions_on_friday,
+        math_session_number,
+        physic_session_number,
+        science_session_number,
+        chemistry_session_number,
+        geography_session_number,
+        english_session_number,
+        french_session_number,
+        informatics_session_number,
+        politics_session_number,
+        sport_session_number,
+        music_session_number,
+        art_session_number,
+        the_beginning_of_day,
+        period_of_session_in_minutes,
+        break_between_sessions
+        ):
     """
         check if the day has an available time to insert subject in
         if session empty then check if it's the only day
@@ -473,7 +181,8 @@ def check_availability_by_specific_day_and_update(day, subject):
                 assign_subject_to_specific_time(
                     sessions_in_the_day,
                     time,
-                    subject)
+                    subject
+                    )
                 break
             else:
                 result = check_if_in_same_day_subject_repeated(
@@ -489,32 +198,85 @@ def check_availability_by_specific_day_and_update(day, subject):
                     assign_subject_to_specific_time(
                         sessions_in_the_day,
                         time,
-                        subject)
+                        subject
+                        )
                     break
     if (is_infinit_loop is True):
         count_of_tries = 0
-        initial_time_table(number_of_sessions_on_monday,
-                           number_of_sessions_on_tuesday,
-                           number_of_sessions_on_wednesday,
-                           number_of_sessions_on_thursday,
-                           number_of_sessions_on_friday)
+        (
+            the_beginning_of_day,
+            period_of_session_in_minutes,
+            break_between_sessions,
+            breaks_per_day,
+            number_of_sessions_on_monday,
+            number_of_sessions_on_tuesday,
+            number_of_sessions_on_wednesday,
+            number_of_sessions_on_thursday,
+            number_of_sessions_on_friday,
+            math_session_number,
+            physic_session_number,
+            science_session_number,
+            chemistry_session_number,
+            geography_session_number,
+            english_session_number,
+            french_session_number,
+            informatics_session_number,
+            politics_session_number,
+            sport_session_number,
+            music_session_number,
+            art_session_number) = user_input.get_all_inputs()
+        presentation = Presentation()
+        initial_time_table(
+            number_of_sessions_on_monday,
+            number_of_sessions_on_tuesday,
+            number_of_sessions_on_wednesday,
+            number_of_sessions_on_thursday,
+            number_of_sessions_on_friday)
 
-        initial_subject_list(math_session_number,
-                             physic_session_number,
-                             chemistry_session_number,
-                             science_session_number,
-                             geography_session_number,
-                             english_session_number,
-                             french_session_number,
-                             informatics_session_number,
-                             politics_session_number,
-                             sport_session_number,
-                             music_session_number,
-                             art_session_number)
+        initial_subject_list(
+            math_session_number,
+            physic_session_number,
+            chemistry_session_number,
+            science_session_number,
+            geography_session_number,
+            english_session_number,
+            french_session_number,
+            informatics_session_number,
+            politics_session_number,
+            sport_session_number,
+            music_session_number,
+            art_session_number)
 
-        subjectDistribution()
-        updated_time_table = change_of_the_session_to_specific_time(time_table)
-        print_time_table(updated_time_table)
+        subjectDistribution(
+            number_of_sessions_on_monday,
+            number_of_sessions_on_tuesday,
+            number_of_sessions_on_wednesday,
+            number_of_sessions_on_thursday,
+            number_of_sessions_on_friday,
+            math_session_number,
+            physic_session_number,
+            science_session_number,
+            chemistry_session_number,
+            geography_session_number,
+            english_session_number,
+            french_session_number,
+            informatics_session_number,
+            politics_session_number,
+            sport_session_number,
+            music_session_number,
+            art_session_number,
+            the_beginning_of_day,
+            period_of_session_in_minutes,
+            break_between_sessions
+        )
+        updated_time_table = (
+            presentation.change_num_of_the_session_to_specific_time(
+                time_table,
+                the_beginning_of_day,
+                period_of_session_in_minutes,
+                break_between_sessions,
+                breaks_per_day))
+        presentation.print_time_table(updated_time_table)
         exit()
 
 
@@ -528,7 +290,8 @@ def check_if_only_one_day_empty():
     """
     list_days_has_empty_session = []
     for i in range(0, 5):
-        day = get_specific_day(i)
+        day = get_specific_day(
+            i)
         empty_session_count = 0
         for session in time_table[day].values():
             if (session == ''):
@@ -546,7 +309,10 @@ def check_if_only_one_day_empty():
         return False
 
 
-def check_if_in_same_day_subject_repeated(day, subjet_name):
+def check_if_in_same_day_subject_repeated(
+        day,
+        subjet_name
+        ):
     """
     It takes day and the name of the subject
     and compare if the subject is repeated in this day
@@ -563,7 +329,28 @@ def check_if_in_same_day_subject_repeated(day, subjet_name):
     return is_repeated
 
 
-def subjectDistribution():
+def subjectDistribution(
+        number_of_sessions_on_monday,
+        number_of_sessions_on_tuesday,
+        number_of_sessions_on_wednesday,
+        number_of_sessions_on_thursday,
+        number_of_sessions_on_friday,
+        math_session_number,
+        physic_session_number,
+        science_session_number,
+        chemistry_session_number,
+        geography_session_number,
+        english_session_number,
+        french_session_number,
+        informatics_session_number,
+        politics_session_number,
+        sport_session_number,
+        music_session_number,
+        art_session_number,
+        the_beginning_of_day,
+        period_of_session_in_minutes,
+        break_between_sessions
+        ):
     """
     distribute subject until no subject found in subject list
     the distribution happens subject by subject
@@ -571,43 +358,111 @@ def subjectDistribution():
     if still has sessions
     a random day will be chosen automatically to insert subject in it
     """
+    # print(time_table)
     while (len(subject_list) > 0):
         subject = subject_list[random.randint(0, len(subject_list)-1)]
         while (subject.count_of_sessions_per_week > 0):
             day = get_specific_day(random.randint(0, len(time_table)-1))
-            check_availability_by_specific_day_and_update(day, subject)
+            check_availability_by_specific_day_and_update(
+                day,
+                subject,
+                number_of_sessions_on_monday,
+                number_of_sessions_on_tuesday,
+                number_of_sessions_on_wednesday,
+                number_of_sessions_on_thursday,
+                number_of_sessions_on_friday,
+                math_session_number,
+                physic_session_number,
+                science_session_number,
+                chemistry_session_number,
+                geography_session_number,
+                english_session_number,
+                french_session_number,
+                informatics_session_number,
+                politics_session_number,
+                sport_session_number,
+                music_session_number,
+                art_session_number,
+                the_beginning_of_day,
+                period_of_session_in_minutes,
+                break_between_sessions)
 
 
-def validate_inputs():
-    """
-    I validate hier if the sum of all subject's sessions
-    is equal to the sum of the session per week
-    """
-    number_of_sessions_in_week = (
-        number_of_sessions_on_monday
-        + number_of_sessions_on_tuesday + number_of_sessions_on_wednesday
-        + number_of_sessions_on_thursday + number_of_sessions_on_friday)
-    number_of_sessions_in_all_subjects = (
-        math_session_number
-        + physic_session_number + chemistry_session_number
-        + science_session_number + geography_session_number
-        + english_session_number + french_session_number
-        + informatics_session_number + politics_session_number
-        + sport_session_number + music_session_number + art_session_number)
-    if number_of_sessions_in_week == number_of_sessions_in_all_subjects:
-        return True
-    else:
-        return False
-
-
-def initial_program():
+def initial_program(
+        number_of_sessions_on_monday,
+        number_of_sessions_on_tuesday,
+        number_of_sessions_on_wednesday,
+        number_of_sessions_on_thursday,
+        number_of_sessions_on_friday,
+        math_session_number,
+        physic_session_number,
+        science_session_number,
+        chemistry_session_number,
+        geography_session_number,
+        english_session_number,
+        french_session_number,
+        informatics_session_number,
+        politics_session_number,
+        sport_session_number,
+        music_session_number,
+        art_session_number,
+        the_beginning_of_day,
+        period_of_session_in_minutes,
+        break_between_sessions
+        ):
     """
     This program is going to begin hier after all inputs
     it check if the validation True
     the program will start distributing the subject
     otherwise will appear a wrong message
     """
-    if (validate_inputs() is True):
+    validate = Validation()
+    (
+        validate_match_sum_of_session,
+        number_of_sessions_in_week,
+        number_of_sessions_in_all_subjects) = (
+            validate.validate_sum_of_sessions_per_week_match_sum_of_all_sessions_for_all_subjects(
+                number_of_sessions_on_monday,
+                number_of_sessions_on_tuesday,
+                number_of_sessions_on_wednesday,
+                number_of_sessions_on_thursday,
+                number_of_sessions_on_friday,
+                math_session_number,
+                physic_session_number,
+                science_session_number,
+                chemistry_session_number,
+                geography_session_number,
+                english_session_number,
+                french_session_number,
+                informatics_session_number,
+                politics_session_number,
+                sport_session_number,
+                music_session_number,
+                art_session_number
+            ))
+    if (validate_match_sum_of_session is True):
+        (
+            the_beginning_of_day,
+            period_of_session_in_minutes,
+            break_between_sessions,
+            breaks_per_day,
+            number_of_sessions_on_monday,
+            number_of_sessions_on_tuesday,
+            number_of_sessions_on_wednesday,
+            number_of_sessions_on_thursday,
+            number_of_sessions_on_friday,
+            math_session_number,
+            physic_session_number,
+            science_session_number,
+            chemistry_session_number,
+            geography_session_number,
+            english_session_number,
+            french_session_number,
+            informatics_session_number,
+            politics_session_number,
+            sport_session_number,
+            music_session_number,
+            art_session_number) = user_input.get_all_inputs()
         initial_time_table(
             number_of_sessions_on_monday,
             number_of_sessions_on_tuesday,
@@ -627,12 +482,100 @@ def initial_program():
             sport_session_number,
             music_session_number,
             art_session_number)
-        subjectDistribution()
     else:
-        print("Sum of sessions per week doesn't" +
-              " match the sum of all subject sessions")
+        print('\033[31m'+"Sum of sessions per week doesn't" +
+              " match the sum of all subject sessions \n"
+              + " You have provided the sum of per week "
+              + str(number_of_sessions_in_week)
+              + " but you have provided the sum of all subject sessions "
+              + str(number_of_sessions_in_all_subjects) + "\n")
+        print('\033[39m')
+        main()
 
 
-initial_program()
-updated_time_table = change_of_the_session_to_specific_time(time_table)
-print_time_table(updated_time_table)
+def main():
+    # inputs for the project
+    print(
+        "Welcome to school time table system"
+        + ", please take into account"
+        + " that time system is from 00:00 to 24:00 \n")
+    user_input.handle_inputs()
+    presentation = Presentation()
+    (
+        the_beginning_of_day,
+        period_of_session_in_minutes,
+        break_between_sessions,
+        breaks_per_day,
+        number_of_sessions_on_monday,
+        number_of_sessions_on_tuesday,
+        number_of_sessions_on_wednesday,
+        number_of_sessions_on_thursday,
+        number_of_sessions_on_friday,
+        math_session_number,
+        physic_session_number,
+        science_session_number,
+        chemistry_session_number,
+        geography_session_number,
+        english_session_number,
+        french_session_number,
+        informatics_session_number,
+        politics_session_number,
+        sport_session_number,
+        music_session_number,
+        art_session_number) = user_input.get_all_inputs()
+    initial_program(
+        number_of_sessions_on_monday,
+        number_of_sessions_on_tuesday,
+        number_of_sessions_on_wednesday,
+        number_of_sessions_on_thursday,
+        number_of_sessions_on_friday,
+        math_session_number,
+        physic_session_number,
+        science_session_number,
+        chemistry_session_number,
+        geography_session_number,
+        english_session_number,
+        french_session_number,
+        informatics_session_number,
+        politics_session_number,
+        sport_session_number,
+        music_session_number,
+        art_session_number,
+        the_beginning_of_day,
+        period_of_session_in_minutes,
+        break_between_sessions
+    )
+    subjectDistribution(
+        number_of_sessions_on_monday,
+        number_of_sessions_on_tuesday,
+        number_of_sessions_on_wednesday,
+        number_of_sessions_on_thursday,
+        number_of_sessions_on_friday,
+        math_session_number,
+        physic_session_number,
+        science_session_number,
+        chemistry_session_number,
+        geography_session_number,
+        english_session_number,
+        french_session_number,
+        informatics_session_number,
+        politics_session_number,
+        sport_session_number,
+        music_session_number,
+        art_session_number,
+        the_beginning_of_day,
+        period_of_session_in_minutes,
+        break_between_sessions
+    )
+    updated_time_table = (
+        presentation.change_num_of_the_session_to_specific_time(
+            time_table,
+            the_beginning_of_day,
+            period_of_session_in_minutes,
+            break_between_sessions,
+            breaks_per_day
+            ))
+    presentation.print_time_table(updated_time_table)
+
+
+main()
