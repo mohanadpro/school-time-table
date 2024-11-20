@@ -38,8 +38,8 @@ class UserInputs():
                 + " enter number from 8 to 10 \n",
                 8,
                 10,
-                "Please enter number from 8 to 10"
-            ))
+                "Please enter number from 8 to 10")
+                )
 
         self.period_of_session_in_minutes = (
             validate.validate_number_between_two_numbers(

@@ -499,6 +499,12 @@ def main():
         "Welcome to school time table system"
         + ", please take into account"
         + " that time system is from 00:00 to 24:00 \n")
+
+    print("Using this system you can generate "
+          + "a school timetable "
+          + "you have to provide the system with some info "
+          + "which is specific for you school\n")
+
     user_input.handle_inputs()
     presentation = Presentation()
     (

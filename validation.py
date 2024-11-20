@@ -49,7 +49,7 @@ class Validation:
         politics_session_number,
         sport_session_number,
         music_session_number,
-        art_session_number):
+        art_session_number):        
         """
         I validate hier if the sum of all subject's sessions
         is equal to the sum of the session per week
