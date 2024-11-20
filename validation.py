@@ -32,24 +32,24 @@ class Validation:
                 print('\033[39m')
 
     def validate_sum_of_sessions_per_week_match_sum_of_all_sessions_for_all_subjects(
-        self,
-        number_of_sessions_on_monday,
-        number_of_sessions_on_tuesday,
-        number_of_sessions_on_wednesday,
-        number_of_sessions_on_thursday,
-        number_of_sessions_on_friday,
-        math_session_number,
-        physic_session_number,
-        science_session_number,
-        chemistry_session_number,
-        geography_session_number,
-        english_session_number,
-        french_session_number,
-        informatics_session_number,
-        politics_session_number,
-        sport_session_number,
-        music_session_number,
-        art_session_number):        
+            self,
+            number_of_sessions_on_monday,
+            number_of_sessions_on_tuesday,
+            number_of_sessions_on_wednesday,
+            number_of_sessions_on_thursday,
+            number_of_sessions_on_friday,
+            math_session_number,
+            physic_session_number,
+            science_session_number,
+            chemistry_session_number,
+            geography_session_number,
+            english_session_number,
+            french_session_number,
+            informatics_session_number,
+            politics_session_number,
+            sport_session_number,
+            music_session_number,
+            art_session_number):
         """
         I validate hier if the sum of all subject's sessions
         is equal to the sum of the session per week
