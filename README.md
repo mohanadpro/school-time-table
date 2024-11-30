@@ -69,5 +69,4 @@ Create a local copy of the GitHub repository by following process below:
 12. Click View to launch the application inside a web page.
 
 # Acknowledgements
-[Iuliia Konovalova](https://github.com/IuliiaKonovalova?tab=repositories)
-I am enormously thankful to my mentor Iuliia Konovalova for her guidance and valuable feedback!
+I am enormously thankful to my mentor [Iuliia Konovalova](https://github.com/IuliiaKonovalova?tab=repositories) for her guidance and valuable feedback!
