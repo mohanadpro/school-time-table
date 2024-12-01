@@ -24,6 +24,7 @@ Every time the user executes the application he/she gets a different result
     * At which time starts the 2nd break
 ![](assets/images/2nd-break-start.png)
     * How many minutes lasts the 2nd break
+![](assets/images/2nd-break-period.png)
 5. How many sessions on Monay
 ![](assets/images/number-of-sessions-on-monday.png)
 6. How many sessions on Tuesday
