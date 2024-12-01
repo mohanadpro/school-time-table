@@ -19,7 +19,7 @@ Every time the user executes the application he/she gets a different result
 ![](assets/images/number-of-breaks'.png)
     * At which time starts start 1st break 
 ![](assets/images/1st%20break%20start.png)
-    * How many minutes lasts the 1st break
+    * How many minutes lasts the 1st break                              
 ![](assets/images/1st-break-period.png)    
     * At which time starts the 2nd break
 ![](assets/images/2nd-break-start.png)
