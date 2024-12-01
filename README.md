@@ -7,13 +7,57 @@ Every time the user executes the application he/she gets a different result
 
 # instruction to use the app
 # inputs:
-1. The user must enter the start time to the school.
+1. The user must enter the start time to the school 
+![](assets/images/start-hour-right.png)
+    * if user entered a wrong number a wrong message will appear
+ ![](assets/images/start-hour-wrong.png)   
 2. How many minutes lasts the session
+![](assets/images/period-of-session.png)
 3. How many minutes are between sessions
-4. How many breaks per day and what time should each break start and how many minutes it lasts
-5. How many sessions per day
-6. How many sessions for each subject per week
-7. If the user entered a wrong data a wrong message with rote color will be displayed
+![](assets/images/break-between-sessions.png)
+4. How many breaks per day, for ex: 2
+![](assets/images/number-of-breaks'.png)
+    * At which time starts start 1st break 
+![](assets/images/1st%20break%20start.png)
+    * How many minutes lasts the 1st break
+![](assets/images/1st-break-period.png)    
+    * At which time starts the 2nd break
+![](assets/images/2nd-break-start.png)
+    * How many minutes lasts the 2nd break
+5. How many sessions on Monay
+![](assets/images/number-of-sessions-on-monday.png)
+6. How many sessions on Tuesday
+![](assets/images/number-of-sessions-on-tuesday.png)
+7. How many sessions on Wedensday
+![](assets/images/number-of-sessions-on-wednesday.png)
+8. How many sessions on Thursday
+![](assets/images/number-of-sessions-on-thursday.png)
+9. How many sessions on Friday
+![](assets/images/number-of-sessions-on-friday.png)
+10. How many mathematics's sessions
+![](assets/images/number-of-math-sessions.png)
+11. How many pyhisc's sessions
+![](assets/images/number-of-physic-sessions.png)
+12. How many chemistry's sessions
+![](assets/images/number-of-chemistry-sessions.png)
+13. How many science's sessions
+![](assets/images/number-of-science-sessions.png)
+14. How many geography's sessions
+![](assets/images/number-of-geography-sessions.png)
+15. How many english's sessions
+![](assets/images/number-of-english-sessions.png)
+16. How many french's sessions
+![](assets/images/number-of-french-sessions.png)
+17. How many informatics's sessions
+![](assets/images/number-of-informatics-sessions.png)
+18. How many politics's sessions
+![](assets/images/number-of-politics-sessions.png)
+19. How many sport's sessions
+![](assets/images/number-of-sport-sessions.png)
+20. How many music's sessions
+![](assets/images/number-of-music-sessions.png)
+21. How many art's sessions
+![](assets/images/number-of-art-sessions.png)
 
 # Future plan
 * Take in account the priority so the subjects that has higher priority would be in the first 3 sessions in the day
