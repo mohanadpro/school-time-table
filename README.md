@@ -65,7 +65,7 @@ Every time the user executes the application he/she gets a different result
 * Work on the favorite days for the teachers so Mathematics teacher prefers to work on Monday and Wednesday
 * Work on the not suitable days for the teacher so Mathematics teacher coudln't work on Tuesday
 
-## Languages:
+## Languages
 * Python 3.11.9: used to anchor the project and direct all application behavior
 * JavaScript: used to provide the start script needed to run the Code Institute mock terminal in the browser
 * HTML used to construct the elements involved in building the mock terminal in the browser
