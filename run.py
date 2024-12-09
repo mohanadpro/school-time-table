@@ -21,7 +21,7 @@ In this case the application will enter an infinite loop,
 count_of_tries = 0
 
 
-def devidDayIntoStudySession(num_of_sessions_in_the_specific_day):
+def devide_day_into_study_session(num_of_sessions_in_the_specific_day):
     """
     It takes a number of the sessions per day
     and return an initial dictionary
@@ -51,15 +51,15 @@ def initial_time_table(
         ....
         }
     """
-    time_table['Monday'] = devidDayIntoStudySession(
+    time_table['Monday'] = devide_day_into_study_session(
         number_of_sessions_on_monday)
-    time_table['Tuesday'] = devidDayIntoStudySession(
+    time_table['Tuesday'] = devide_day_into_study_session(
         number_of_sessions_on_tuesday)
-    time_table['Wedensday'] = devidDayIntoStudySession(
+    time_table['Wedensday'] = devide_day_into_study_session(
         number_of_sessions_on_wednesday)
-    time_table['Thurday'] = devidDayIntoStudySession(
+    time_table['Thurday'] = devide_day_into_study_session(
         number_of_sessions_on_thursday)
-    time_table['Firday'] = devidDayIntoStudySession(
+    time_table['Firday'] = devide_day_into_study_session(
         number_of_sessions_on_friday)
 
 
