@@ -5,8 +5,8 @@
 This is an algorithm to create a school time table 
 Every time the user executes the application he/she gets a different result
 
-# instruction to use the app
-# inputs:
+## instruction to use the app
+### Features:
 1. The user must enter the start time to the school 
 ![](assets/images/start-hour-right.png)
     * if user entered a wrong number a wrong message will appear
@@ -60,33 +60,33 @@ Every time the user executes the application he/she gets a different result
 21. How many art's sessions
 ![](assets/images/number-of-art-sessions.png)
 
-# Future plan
+## Future plan
 * Take in account the priority so the subjects that has higher priority would be in the first 3 sessions in the day
 * Work on the favorite days for the teachers so Mathematics teacher prefers to work on Monday and Wednesday
 * Work on the not suitable days for the teacher so Mathematics teacher coudln't work on Tuesday
 
-# Languages:
+## Languages:
 * Python 3.11.9: used to anchor the project and direct all application behavior
 * JavaScript: used to provide the start script needed to run the Code Institute mock terminal in the browser
 * HTML used to construct the elements involved in building the mock terminal in the browser
 
 
-# Tools:
+## Tools:
 ---
 * VSCode was used as the main tool to write and edit code.
 * Git was used for the version control of the website.
 * GitHub was used to host the code of the website.
 
-# Testing
+## Testing
 ---
 * All clear, no errors found except two functions, because they have a long name when passing through [CI Python Linter](https://pep8ci.herokuapp.com/#) 
 
 
-# Deployment
+## Deployment
 ---
 * The program was deployed to [Heroku](https://dashboard.heroku.com/).
 * The program can be reached by the [link](https://school-time-table-e8ecb79978ea.herokuapp.com/)
-# To deploy the project as an application that can be run locally:
+### To deploy the project as an application that can be run locally:
 Note:
 
 1. This project requires you to have Python installed on your local PC:
@@ -98,7 +98,7 @@ Create a local copy of the GitHub repository by following process below:
     1. Open a folder on your computer with the terminal.
     2. Run the following command
     3. git clone https://github.com/IuliiaKonovalova/madlib_with_python.git
-# To deploy the project to Heroku so it can be run as a remote web application
+### To deploy the project to Heroku so it can be run as a remote web application
 1. Create a Heroku account if you don't already have one here [Heroku](https://dashboard.heroku.com/).
 2. Create a new Heroku application on the following page here New [Heroku App](https://dashboard.heroku.com/apps):
 3. Go to the Deploy tab
