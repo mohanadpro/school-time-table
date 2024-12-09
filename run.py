@@ -421,7 +421,7 @@ def initial_program(
         validate_match_sum_of_session,
         number_of_sessions_in_week,
         number_of_sessions_in_all_subjects) = (
-            validate.validate_sum_of_sessions_per_week_match_sum_of_all_sessions_for_all_subjects(
+            validate.validate_sum_of_week_session_match_sum_of_all_sessions(
                 number_of_sessions_on_monday,
                 number_of_sessions_on_tuesday,
                 number_of_sessions_on_wednesday,

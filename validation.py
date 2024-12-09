@@ -31,7 +31,7 @@ class Validation:
                 print('\033[31m' + error_message)
                 print('\033[39m')
 
-    def validate_sum_of_sessions_per_week_match_sum_of_all_sessions_for_all_subjects(
+    def validate_sum_of_week_session_match_sum_of_all_sessions(
             self,
             number_of_sessions_on_monday,
             number_of_sessions_on_tuesday,
