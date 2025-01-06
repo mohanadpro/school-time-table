@@ -71,12 +71,6 @@ Every time the user executes the application he/she gets a different result
 * HTML used to construct the elements involved in building the mock terminal in the browser
 
 
-## Tools:
----
-* VSCode was used as the main tool to write and edit code.
-* Git was used for the version control of the website.
-* GitHub was used to host the code of the website.
-
 ## Testing
 ---
 * All clear, no errors found except two functions, because they have a long name when passing through [CI Python Linter](https://pep8ci.herokuapp.com/#)
@@ -185,5 +179,17 @@ Create a local copy of the GitHub repository by following process below:
 11. Click Deploy Branch
 12. Click View to launch the application inside a web page.
 
-# Acknowledgements
+## Attribution 
+### Tools
+* VSCode was used as the main tool to write and edit code.
+* Git was used for the version control of the website.
+* GitHub was used to host the code of the website.
+
+### Resources
+* [Stak over flow](https://stackoverflow.com/) to get information in coding
+* [Am i responsive](https://ui.dev/amiresponsive) to see project in different screens
+* [CI Python Linter](https://pep8ci.herokuapp.com/#) to validate standard way for writing python code (it's provided by code institute)
+* Command Line Terminal: which is provided from code institute to enable the user from entering data
+
+### Acknowledgements
 I am enormously thankful to my mentor [Iuliia Konovalova](https://github.com/IuliiaKonovalova?tab=repositories) for her guidance and valuable feedback!
