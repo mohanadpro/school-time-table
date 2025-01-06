@@ -125,6 +125,15 @@ Every time the user executes the application he/she gets a different result
 ![Mozella](assets/images/Testing_Firefox.png)
 </details>
 
+<details>
+<summary>
+    Opera
+</summary>
+
+![Opera](assets/images/Testing_Opera.png)
+</details>
+
+
 ## Deployment
 ---
 * The program was deployed to [Heroku](https://dashboard.heroku.com/).
