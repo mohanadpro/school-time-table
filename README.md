@@ -80,7 +80,26 @@ Every time the user executes the application he/she gets a different result
 ## Testing
 ---
 * All clear, no errors found except two functions, because they have a long name when passing through [CI Python Linter](https://pep8ci.herokuapp.com/#) 
+    * run.py
+    ![](assets/images/run_py_validation.png)
+    * user_input.py
+    ![](assets/images/user_input_py_validation.png)
+    * validation.py
+    ![](assets/images/validation_py_validation.png)
+    * presentaion.py
+    ![](assets/images/presentaion_py_validation.png)
+    * break_per_day.py
+    ![](assets/images/break_per_day_py_validation.png)
 
+* Manual Testing 
+- Enter an invalid start hour, i got an error message and return to input the same field | PASS
+![](assets/images/manual_testing_1.png)
+- Enter invalid period for the session, i got an error message and return to input the same field | PASS
+![](assets/images/)
+- Enter invalid start time for the break, i got an error message and return to input the same field | PASS
+![](assets/images/manual_testing_3.png)
+- Enter sum of sessions per week not equal to sum of sessions for all subject, i got an error and the project will start from the beginning
+![](assets/images/manual_testing_4.png)
 
 ## Deployment
 ---
