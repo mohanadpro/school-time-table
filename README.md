@@ -102,32 +102,27 @@ Every time the user executes the application he/she gets a different result
 ![](assets/images/manual_testing_4.png)
 
 ### Compatibilty Testing
+
 <details>
-<summary>
-    Google Chrome
+<summary> Google Chrome
 </summary>
+
 ![Google Chrome](assets/images/Testing_Google_Chrome.png)
 </details>
 
 <details>
-<summary>
-    Microsoft Edge
+<summary> Microsoft Edge
 </summary>
+
 ![Microsoft Edge](assets/images/Testing_Microsoft_Edge.png)
 </details>
 
 <details>
 <summary>
-    Mozella 
+    Mozella
 </summary>
-![Mozella](assets/images/Testing_Firefox.png)
-</details>
 
-<details>
-<summary>
-    Opera
-</summary>
-![Opera](assets/images/Testing_Opera.png)
+![Mozella](assets/images/Testing_Firefox.png)
 </details>
 
 ## Deployment
