@@ -137,6 +137,23 @@ Every time the user executes the application he/she gets a different result
 * Porject on difference screen
 ![](assets/images/Testing_responsive.png)
 
+### Lighthous
+<details>
+<summary>
+    Mobile
+</summary>
+
+![Mobile](assets/images/Testing_lighthous_mobile.png)
+</details>
+
+<details>
+<summary>
+    Desktop
+</summary>
+
+![Mobile](assets/images/Testing_lighthous_desktop.png)
+</details>
+
 ## Deployment
 ---
 * The program was deployed to [Heroku](https://dashboard.heroku.com/).
