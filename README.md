@@ -134,7 +134,7 @@ Every time the user executes the application he/she gets a different result
 </details>
 
 ### Responsive Testing
-* Porject on difference screen
+* Porject on different screens
 ![](assets/images/Testing_responsive.png)
 
 ### Lighthous
