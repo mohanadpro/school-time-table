@@ -107,28 +107,28 @@ Every time the user executes the application he/she gets a different result
     Google Chrom
 </summary>
 ![](assets/images/Testing_Google_Chrome.png)
-<details>
+</details>
 
 <details>
 <summary>
     Microsoft Edge
 </summary>
 ![](assets/images/Testing_Microsoft_Edge.png)
-<details>
+</details>
 
 <details>
 <summary>
     Mozella 
 </summary>
 ![](assets/images/Testing_Firefox.png)
-<details>
+</details>
 
 <details>
 <summary>
     Opera
 </summary>
 ![](assets/images/Testing_Opera.png)
-<details>
+</details>
 
 ## Deployment
 ---
