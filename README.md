@@ -89,7 +89,7 @@ Every time the user executes the application he/she gets a different result
 - Enter an invalid start hour, i got an error message and return to input the same field | PASS
 ![](assets/images/manual_testing_1.png)
 - Enter invalid period for the session, i got an error message and return to input the same field | PASS
-![](assets/images/)
+![](assets/images/manual_testing_2.png)
 - Enter invalid start time for the break, i got an error message and return to input the same field | PASS
 ![](assets/images/manual_testing_3.png)
 - Enter sum of sessions per week not equal to sum of sessions for all subject, i got an error and the project will start from the beginning
