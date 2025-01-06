@@ -86,14 +86,23 @@ Every time the user executes the application he/she gets a different result
     ![](assets/images/break_per_day_py_validation.png)
 
 ### Manual Testing 
-- Enter an invalid start hour, i got an error message and return to input the same field | PASS
+- Enter an invalid start hour, user got an error message and return to input the same field | PASS
 ![](assets/images/manual_testing_1.png)
-- Enter invalid period for the session, i got an error message and return to input the same field | PASS
+- Enter invalid period for break, user got an error message and return to input the same field | PASS
+![](assets/images/manual_testing_5.png)
+- Enter invalid period for the session, user got an error message and return to input the same field | PASS
 ![](assets/images/manual_testing_2.png)
-- Enter invalid start time for the break, i got an error message and return to input the same field | PASS
+- Enter invalid start time for the break, user got an error message and return to input the same field | PASS
 ![](assets/images/manual_testing_3.png)
-- Enter sum of sessions per week not equal to sum of sessions for all subject, i got an error and the project will start from the beginning
+- Enter invalid number for sessions per day, user got an error message and return to input the same field | PASS
+![](assets/images/manual_testing_6.png)
+- Enter invalid number for number of subjects' sessions, user got an error message and return to input the same field | PASS
+![](assets/images/manual_testing_7.png)
+- Enter sum of sessions per week not equal to sum of sessions for all subject, user got an error and the project will start from the beginning
 ![](assets/images/manual_testing_4.png)
+- Enter valid data, user got a timetable | PASS
+![](assets/images/result-image.png)
+
 
 ### Compatibilty Testing
 
