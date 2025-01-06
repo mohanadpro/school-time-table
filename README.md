@@ -79,7 +79,7 @@ Every time the user executes the application he/she gets a different result
 
 ## Testing
 ---
-* All clear, no errors found except two functions, because they have a long name when passing through [CI Python Linter](https://pep8ci.herokuapp.com/#) 
+* All clear, no errors found except two functions, because they have a long name when passing through [CI Python Linter](https://pep8ci.herokuapp.com/#)
     * run.py
     ![](assets/images/run_py_validation.png)
     * user_input.py
@@ -91,7 +91,7 @@ Every time the user executes the application he/she gets a different result
     * break_per_day.py
     ![](assets/images/break_per_day_py_validation.png)
 
-* Manual Testing 
+### Manual Testing 
 - Enter an invalid start hour, i got an error message and return to input the same field | PASS
 ![](assets/images/manual_testing_1.png)
 - Enter invalid period for the session, i got an error message and return to input the same field | PASS
@@ -100,6 +100,35 @@ Every time the user executes the application he/she gets a different result
 ![](assets/images/manual_testing_3.png)
 - Enter sum of sessions per week not equal to sum of sessions for all subject, i got an error and the project will start from the beginning
 ![](assets/images/manual_testing_4.png)
+
+### Compatibilty Testing
+<details>
+<summary>
+    Google Chrom
+</summary>
+![](assets/images/Testing_Google_Chrome.png)
+<details>
+
+<details>
+<summary>
+    Microsoft Edge
+</summary>
+![](assets/images/Testing_Microsoft_Edge.png)
+<details>
+
+<details>
+<summary>
+    Mozella 
+</summary>
+![](assets/images/Testing_Firefox.png)
+<details>
+
+<details>
+<summary>
+    Opera
+</summary>
+![](assets/images/Testing_Opera.png)
+<details>
 
 ## Deployment
 ---
